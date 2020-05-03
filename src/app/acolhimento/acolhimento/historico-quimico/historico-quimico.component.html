@@ -1,1 +1,64 @@
-<p>historico-quimico works!</p>
+<button mat-icon-button color="warn" (click)="openDialog('Add',{},$event)">
+    <mat-icon class="indigo-icon">add</mat-icon>
+</button>
+<mat-form-field>
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)">
+</mat-form-field>
+
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+
+        <ng-container matColumnDef="substancia">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Substância</th>
+            <td mat-cell *matCellDef="let row"> {{row.substancia.nome}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="idade">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Idade </th>
+            <td mat-cell *matCellDef="let row"> {{row.idade}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef> Ações </th>
+            <td mat-cell *matCellDef="let row" class="action-link">
+                <button mat-icon-button color="primary" (click)="openDialog('Update',row,$event)">
+                    <mat-icon class="indigo-icon">edit</mat-icon>
+                </button> |
+                <button mat-icon-button color="warn" (click)="openDialog('Delete',row,$event)">
+                    <mat-icon class="indigo-icon">delete</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns;sticky: true"></tr>
+        <tr class="table-row" tabindex="1" mat-row *matRowDef="let row; columns: displayedColumns;">
+        </tr>
+    </table>
+
+    <mat-paginator class="mat-paginator-sticky" [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons>
+    </mat-paginator>
+</div>
+
+
+<ng-template #formulario>
+    <form [formGroup]="form" (ngSubmit)="saveAcolhimento()">
+        <mat-form-field formGroupName="substancia">
+            <mat-label>Substância</mat-label>
+            <mat-select formControlName="_id">
+                <mat-option *ngFor="let list of substanciaList" value="{{list._id}}">
+                    {{list.nome}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Idade de inicio</mat-label>
+            <input matInput formControlName="idade">
+        </mat-form-field>
+        <div>
+            <button type="submit" [disabled]="!form.valid" mat-button>Salvar</button>
+        </div>
+    </form>
+
+</ng-template>

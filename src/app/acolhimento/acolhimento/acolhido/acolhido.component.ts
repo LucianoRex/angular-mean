@@ -25,7 +25,7 @@ export class AcolhidoComponent implements OnInit {
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
-  @ViewChild('form') formTemplate: TemplateRef<any>;
+  @ViewChild('formulario') formTemplate: TemplateRef<any>;
 
   form: FormGroup;
 

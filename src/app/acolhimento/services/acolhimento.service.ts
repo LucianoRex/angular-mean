@@ -33,6 +33,17 @@ export class AcolhimentoService {
     return this.http.get(`${apiUrl}/acolhimento`);
   }
 
+  readHistoricoQuimico(_id: string) {
+    return this.http.get(`${apiUrl}/acolhimento/${_id}/historico-quimico`)
+  }
+
+  saveHistoricoQuimico(form: FormGroup, _id: string) {
+    console.log(form.value)
+    console.log(_id)
+    
+      return this.http.post(`${apiUrl}/acolhimento/${_id}/historico-quimico`, form.value)
+    
+  }
 
   readAcolhimentoById(_id: string) {
     return this.http.get(`${apiUrl}/acolhimento/${_id}`)
@@ -48,5 +59,16 @@ export class AcolhimentoService {
 
   readAcolhido() {
     return this.http.get(`${apiUrl}/acolhido`);
+  }
+
+
+
+  /**
+   * 
+   * 
+   */
+
+  readSubstancia(): Observable<any> {
+    return this.http.get(`${apiUrl}/substancia`);
   }
 }

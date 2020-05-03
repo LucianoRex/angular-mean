@@ -6,6 +6,7 @@ import * as io from 'socket.io-client';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogBoxComponent } from 'src/app/utils/components/dialog-box/dialog-box.component';
 import { AcolhidoComponent } from '../acolhido/acolhido.component';
+import { ComponentController } from 'src/app/utils/controllers/component-controller';
 
 
 @Component({
@@ -13,7 +14,7 @@ import { AcolhidoComponent } from '../acolhido/acolhido.component';
   templateUrl: './identificacao.component.html',
   styleUrls: ['./identificacao.component.css']
 })
-export class IdentificacaoComponent implements OnInit {
+export class IdentificacaoComponent extends ComponentController implements OnInit {
 
   socket = io('http://localhost:4000');
 
@@ -32,7 +33,9 @@ export class IdentificacaoComponent implements OnInit {
     private _formBuilder: FormBuilder,
     private acolhimentoService: AcolhimentoService,
     private dialog: MatDialog
-  ) { }
+  ) {
+    super();
+  }
 
   ngOnInit(): void {
 

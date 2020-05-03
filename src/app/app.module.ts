@@ -21,13 +21,15 @@ import { HttpClientModule } from '@angular/common/http';
 import localePtBr from '@angular/common/locales/pt';
 import { LOCALE_ID } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
+import { LoginComponent } from './views/login/login.component';
 registerLocaleData(localePtBr);
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
-    LayoutComponent
+    LayoutComponent,
+    LoginComponent
   ],
   imports: [    
     BrowserModule,

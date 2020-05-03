@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
+import { LoginComponent } from './views/login/login.component';
 
 
 const routes: Routes = [
@@ -10,9 +11,13 @@ const routes: Routes = [
     children: [
       {
         path: 'acolhimento',
-        loadChildren: () => import('./acolhimento/acolhimento.module').then(m => m.AcolhimentoModule)
+        loadChildren: () => import('./acolhimento/acolhimento.module').then(m => m.AcolhimentoModule),        
       }
     ]
+  },
+  {
+    path:'login',
+    component:LoginComponent
   }
 
 ];

@@ -10,6 +10,7 @@ import { DialogBoxComponent } from 'src/app/utils/components/dialog-box/dialog-b
 
 import * as io from 'socket.io-client';
 import { DatePipe } from '@angular/common';
+import { ComponentController } from 'src/app/utils/controllers/component-controller';
 
 
 @Component({
@@ -18,22 +19,18 @@ import { DatePipe } from '@angular/common';
   styleUrls: ['./acolhimento-list.component.css'],
   providers: [DatePipe]
 })
-export class AcolhimentoListComponent implements OnInit {
+export class AcolhimentoListComponent extends ComponentController implements OnInit {
 
   socket = io('http://localhost:4000');
 
   displayedColumns: string[] = ['acolhido.nome', 'dataIngresso', 'dataEgresso', 'convenio', 'action'];
   dataSource: MatTableDataSource<Acolhimento>;
-
-  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
-  @ViewChild(MatSort, { static: true }) sort: MatSort;
-
-
+  
   constructor(
     private acolhimentoService: AcolhimentoService,
     public dialog: MatDialog,
   ) {
-
+    super();
   }
 
 
@@ -57,20 +54,7 @@ export class AcolhimentoListComponent implements OnInit {
       };
     });
   }
-
-  getPropertyByPath(obj: Object, pathString: string) {
-    return pathString.split('.').reduce((o, i) => o[i], obj);
-  }
-
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
-    }
-  }
-
+ 
   openDialog(action, obj) {
     obj.action = action || {};
     console.log(obj)

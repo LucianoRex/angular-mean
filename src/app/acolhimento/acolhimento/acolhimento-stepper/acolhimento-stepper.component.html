@@ -4,9 +4,9 @@
         <app-identificacao [_id]="_id" (notify)='onNotify($event)'></app-identificacao>
     </mat-step>
 
-    <mat-step [stepControl]="form">
+    <mat-step>
         <ng-template matStepLabel>Histórico Químico</ng-template>
-
+        <app-historico-quimico [_id]="_id"></app-historico-quimico>
     </mat-step>
 
     <mat-step [stepControl]="form">

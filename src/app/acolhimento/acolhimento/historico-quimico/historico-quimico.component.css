@@ -1,0 +1,32 @@
+table {
+    width: 100%;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  td, th {
+    width: 25%;
+  }
+  
+  .table-row:hover {
+    background: #3f51b518;
+    outline: none;
+    cursor: pointer;
+  }
+  
+  .table-row:focus {
+    background: #3f51b549;
+    outline: none;
+  }
+  .table-row:focus mat-cell {
+    color: white; 
+  }
+
+  .mat-paginator-sticky {
+    bottom: 0px;
+    position: sticky;
+    z-index: 10;
+  }
