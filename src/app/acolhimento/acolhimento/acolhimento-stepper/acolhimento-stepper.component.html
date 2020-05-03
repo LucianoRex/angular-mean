@@ -1,0 +1,45 @@
+<mat-vertical-stepper [linear]="isLinear" #stepper>
+    <mat-step [stepControl]="form">
+        <ng-template matStepLabel>Acolhimento</ng-template>
+        <app-identificacao [_id]="_id" (notify)='onNotify($event)'></app-identificacao>
+    </mat-step>
+
+    <mat-step [stepControl]="form">
+        <ng-template matStepLabel>Histórico Químico</ng-template>
+
+    </mat-step>
+
+    <mat-step [stepControl]="form">
+        <ng-template matStepLabel>Medicamentos</ng-template>
+    </mat-step>
+
+    <mat-step [stepControl]="form">
+        <ng-template matStepLabel>Tratamentos</ng-template>
+    </mat-step>
+
+    <mat-step [stepControl]="form">
+        <ng-template matStepLabel>Histórico Psiquico</ng-template>
+    </mat-step>
+
+    <mat-step [stepControl]="form">
+        <ng-template matStepLabel>Histórico Familiar Social</ng-template>
+    </mat-step>
+
+    <mat-step [stepControl]="form">
+        <ng-template matStepLabel>Histórico Forense</ng-template>
+    </mat-step>
+
+    <mat-step [stepControl]="form">
+        <ng-template matStepLabel>Saídas</ng-template>
+    </mat-step>
+
+
+    <mat-step>
+        <ng-template matStepLabel>Done</ng-template>
+        <p>You are now done.</p>
+        <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button (click)="stepper.reset()">Reset</button>
+        </div>
+    </mat-step>
+</mat-vertical-stepper>

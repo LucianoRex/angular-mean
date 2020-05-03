@@ -3,7 +3,16 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase:{
+    apiKey: "AIzaSyBAPJieiq6433RV9LFbTeVNt7Z9gI310rw",
+    authDomain: "aguia-nova-vida.firebaseapp.com",
+    databaseURL: "https://aguia-nova-vida.firebaseio.com",
+    projectId: "aguia-nova-vida",
+    storageBucket: "aguia-nova-vida.appspot.com",
+    messagingSenderId: "1042781202222",
+    appId: "1:1042781202222:web:6796cdeca24a2fef"
+  }
 };
 
 /*

@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "aguia-nova-vida": {
+      "hosting": {
+        "client": [
+          "aguia-nova-vida"
+        ]
+      }
+    }
+  }
+}
